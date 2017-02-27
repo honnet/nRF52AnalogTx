@@ -11,11 +11,6 @@
 // create ble serial instance, see pinouts above
 BLESerial BLESerial(BLE_REQ, BLE_RDY, BLE_RST);
 
-int Ax[8] = {A0, A1, A2, A3, A4, A5, A6, A7};
-// extra pins (normally not in arduino:
-// A6 = P0.02 = AIN0 = AREF
-// A7 = P0.05 = AIN3
-
 void setup() {
     // custom services and characteristics can be added as well
     BLESerial.setLocalName("AnalogTx");
@@ -64,8 +59,9 @@ void analogTx() {
     char index = 0;
 
     if (BLESerial) {
-        for (int i=0; i<8; i++) {
-            int val = analogRead(Ax[i]);
+        // extra pins (not normally in arduino): A6 = P0.02 and A7 = P0.05
+        for (int pin = A0; pin < A0+NUM_ANALOG_INPUTS; pin++) {
+            int val = analogRead(pin);
             index += sprintf(buffer + index, "%d ", val);
         }
         BLESerial.println(buffer);
