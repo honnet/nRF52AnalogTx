@@ -21,13 +21,8 @@ Starting from this repo:
 
 https://github.com/sandeepmistry/arduino-nRF5
 
-But a fork was needed to allow using the 8 analog input as by default there
-are only 6 usable (a firmware limitation to stick to Arduino conventions).
-This fork is available here:
+There are 2 extra analog inputs (normally unavailable in arduino): AIN0 (= A6 = P0.02) and AIN3 (= A7 = P0.05), see [pin assignments](http://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.nrf52832.ps.v1.1%2Fpin.html&cp=2_2_0_3&anchor=pin_assign).
 
-https://github.com/honnet/arduino-nRF5
-
-The added analog input are AIN0 and AIN3 - see [pin assignments](http://infocenter.nordicsemi.com/index.jsp?topic=%2Fcom.nordic.infocenter.nrf52832.ps.v1.1%2Fpin.html&cp=2_2_0_3&anchor=pin_assign).
 
 
 ### Software
